@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Here",
+  "description": "Vulnerability helper",
+  "version": "1.0",
+  "action": {
+    "default_title": "Here",
+    "default_icon": "here_icon128.png"
+  },
+  "icons": {
+    "16": "here_icon16.png",
+    "48": "here_icon48.png",
+    "128": "here_icon128.png"
+  },
+  "permissions": ["contextMenus", "tabs", "storage"],
+  "content_scripts": [
+    {
+      "js": ["scripts/vulnerability-helper/vulnerability-helper.js"],
+      "css": ["scripts/vulnerability-helper/vulnerability-helper.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["apps/chat/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
